@@ -50,4 +50,5 @@ On your computer:
 ## Acknowledgements
 
  - [Latvian Name Day Calendar](https://github.com/mixisLv/name-days)
+ - [Vārda dienas on AppStore](https://apps.apple.com/gb/app/v%C4%81rda-diena/id1562964065) widget, kas  parāda visas vārda dienas uz homescreen
 
