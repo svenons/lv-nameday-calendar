@@ -4,7 +4,6 @@ from datetime import datetime
 
 from contactreader import read_contacts
 from datareader import read_data
-from dateutil.relativedelta import relativedelta
 
 # Reading the contacts
 contacts_file = 'contacts.vcf'
