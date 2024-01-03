@@ -15,9 +15,12 @@ def read_contacts(file_path):
             name = ', '.join(name_parts)
             if name.startswith('<N') and name.endswith('>'):
                 name = name[3:-2]  # Remove the '<N' and '>' characters
-            name = name.replace("}, ", "")  # Remove the character '}'
-            name = name.replace("}", "")  # Remove the character '}'
-            name = name[:name.rfind(",")]  # Remove the last comma
+            for x in ["}, ", "}", "(", ")", "\\", ";", "<", ">", ":", '"', "'", "FN", "N", "=", "\n"]:
+                if x == "(": # because a lot of people have contacts like Name(Name's Father)
+                    name = name.replace(x, ",")
+                else:
+                    name = name.replace(x, "")  # Remove the character 'x'
             if not name == '':
-                contacts.append(name)
+                if not name == ',':
+                    contacts.append(name)
     return contacts

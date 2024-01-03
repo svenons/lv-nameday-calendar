@@ -11,8 +11,17 @@ contacts = read_contacts(contacts_file)
 
 names = []
 for x in contacts:
-    name = x.split(', ')[0]
-    names.append(name)
+    name = x.split(',')
+    if len(name) > 1:
+        for y in range(0, len(name)):
+            nowname = name[y].replace(' ', '').replace(',', '')
+            if not nowname == '':
+                names.append(nowname)
+    else:
+        name = name[0]
+        if type(name) == list:
+            name = name[0]
+        names.append(name.replace(' ', ''))
 
 # Reading the name-days
 data_folder = os.path.join(os.path.dirname(__file__), 'data') # Get the path to the data folder
@@ -47,6 +56,3 @@ with open('calendar.ics', 'wb') as f:
 
 with open('calendar.ics', 'wb') as f:
     f.write(cal.to_ical())
-
-
-
